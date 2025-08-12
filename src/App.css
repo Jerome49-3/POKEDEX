@@ -1,0 +1,22 @@
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+#root {
+  cursor: url("/img/pikachu.png"), auto;
+}
+
+.imgNotFound {
+  width: 35px;
+}
+.card:hover {
+  cursor: url("/img/pikachuStorm.png"), auto !important;
+}
+.imgNotDisplay {
+  display: none;
+}
+/* .boxLoader {
+  background-image: url("/img/pikachu-bulbasaur-squirtle-charmander-desktop-wallpaper-preview.jpg");
+} */

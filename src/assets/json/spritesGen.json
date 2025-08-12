@@ -1,0 +1,35 @@
+[
+  {
+    "name": "generation-viii",
+    "version": [
+      "brilliant-diamond-and-shining-pearl",
+      "legends-arceus",
+      "sword-shield"
+    ]
+  },
+  {
+    "name": "generation-vii",
+    "version": [
+      "lets-go-pikachu-lets-go-eevee",
+      "sun-moon",
+      "ultra-sun-ultra-moon"
+    ]
+  },
+  { "name": "generation-vi", "version": ["omega-ruby-alpha-sapphire", "x-y"] },
+  { "name": "generation-v", "version": ["black-2-white-2", "black-white"] },
+  { "name": "generation-ix", "version": ["scarlet-violet"] },
+  {
+    "name": "generation-iv",
+    "version": ["diamond-pearl", "heartgold-soulsilver", "platinum"]
+  },
+  {
+    "name": "generation-iii",
+    "version": [
+      "colosseum",
+      "emerald",
+      "firered-leafgreen",
+      "ruby-saphire",
+      "xd"
+    ]
+  }
+]
