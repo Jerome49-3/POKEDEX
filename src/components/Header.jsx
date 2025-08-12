@@ -7,7 +7,11 @@ const Header = () => {
       <div className="wrapper flex w-full max-w-6xl">
         <div className="flex-1">
           <a href="/" className="btn btn-ghost text-xl">
-            <Image src={logoPokemon} alt="logo-pokemon" />
+            <Image
+              src={logoPokemon}
+              alt="logo-pokemon"
+              classImg="logoPokemon"
+            />
           </a>
         </div>
         <div className="flex-1">

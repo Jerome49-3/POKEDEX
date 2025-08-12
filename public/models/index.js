@@ -1,3 +1,4 @@
-import Pokedek from "./pokedex.glb";
+import Pokedex from "./pokedex.glb";
+import Sky from "./Sky.glb";
 
-export { Pokedek };
+export { Pokedex, Sky };

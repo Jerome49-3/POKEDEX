@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 const outlet = "outlet";
-const hFull = "h-[81%]";
+const h80 = "h-[81%]";
 
 import { Header, Footer } from "../components";
 
@@ -21,7 +21,7 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-      <div className={isOnRoot ? `${outlet} ${hFull}` : `${outlet}`}>
+      <div className={isOnRoot ? `${outlet} ${h80}` : `${outlet}`}>
         <Outlet />
       </div>
       <Footer />

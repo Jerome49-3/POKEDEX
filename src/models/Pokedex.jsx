@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function Model(props) {
+const Pokedex = (props) => {
   const { nodes, materials } = useGLTF("/models/pokedex.glb");
   return (
     <group {...props} dispose={null}>
@@ -18,6 +18,8 @@ export default function Model(props) {
       </group>
     </group>
   );
-}
+};
 
-useGLTF.preload("../assets/models/pokedex.glb");
+useGLTF.preload("/models/pokedex.glb");
+
+export default Pokedex;

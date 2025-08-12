@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Image from "./Image";
 import DirectionLightScenes from "./DirectionLightScenes";
 import SpotLightScene from "./SpotLightScene.jsx";
+import BoxModels from "./BoxModels.jsx";
 
 export {
   CardPoke,
@@ -16,4 +17,5 @@ export {
   Image,
   DirectionLightScenes,
   SpotLightScene,
+  BoxModels,
 };
