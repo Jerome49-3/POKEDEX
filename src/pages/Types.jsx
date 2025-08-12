@@ -11,7 +11,9 @@ const Type = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/pokedex/types");
+        const response = await axios.get(
+          `${import.meta.env.VITE_REACT_APP_URL}/pokedex/types`
+        );
         // console.log("response in Type:", response);
         dispatch({ type: "getPokemonTypes", data: response?.data });
         setLoading(false);

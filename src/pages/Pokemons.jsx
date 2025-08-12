@@ -17,7 +17,7 @@ const Pokemon = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/pokedex/pokemons"
+          `${import.meta.env.VITE_REACT_APP_URL}/pokedex/pokemons`
         );
         if (response?.data) {
           console.log("response.date in Home:", response?.data);

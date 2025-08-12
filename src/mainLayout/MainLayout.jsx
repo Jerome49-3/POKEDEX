@@ -8,10 +8,17 @@ import { Header, Footer } from "../components";
 const MainLayout = () => {
   const [isOnRoot, setIsOnRoot] = useState(false);
   let location = useLocation();
-  // console.log("location:", location);
-
+  console.log("location:", location);
+  console.log(
+    " location.pathname.startsWith:",
+    location.pathname.startsWith("/pokemon/")
+  );
   useEffect(() => {
-    if (location.pathname === "/" || location.pathname === "/types") {
+    if (
+      location.pathname === "/" ||
+      location.pathname === "/types" ||
+      location.pathname.startsWith("/pokemon/") === true
+    ) {
       setIsOnRoot(true);
     } else {
       setIsOnRoot(false);

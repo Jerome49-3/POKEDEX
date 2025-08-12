@@ -7,7 +7,7 @@ import Pokedex from "../models/Pokedex";
 import Sky from "../models/Sky";
 import { Loader, DirectionLightScenes, SpotLightScene } from "../components";
 
-const BoxModels = () => {
+const BoxModels = ({ skyScale, skyPosition, skyRotation }) => {
   // const isDesktopOrLaptop = useMediaQuery({
   //   query: "(min-width: 1224px)",
   // });
@@ -51,7 +51,11 @@ const BoxModels = () => {
               />
               <Pokedex />
             </Suspense>
-            <Sky />
+            <Sky
+              skyScale={skyScale}
+              skyPosition={skyPosition}
+              skyRotation={skyRotation}
+            />
           </Suspense>
         </Canvas>
       </div>

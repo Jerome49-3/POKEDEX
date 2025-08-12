@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { useStateContext } from "../assets/lib/useStateContext";
 import fetchDataGeneric from "../assets/lib/fetchData/fetchDataGeneric";
 import axios from "axios";
 
 const useCallApi = (methodAxios, urlApi, typeString) => {
-  console.log("methodAxios on useCallApi:", methodAxios);
+  // console.log("methodAxios on useCallApi:", methodAxios);
   const [loading, setLoading] = useState(true);
   const { state, dispatch } = useStateContext();
   useEffect(() => {
@@ -17,7 +18,7 @@ const useCallApi = (methodAxios, urlApi, typeString) => {
       typeString,
       setLoading
     );
-  }, []);
+  }, [loading]);
   return { state, loading };
 };
 
