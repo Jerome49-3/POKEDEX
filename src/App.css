@@ -8,6 +8,12 @@ body,
 .boxHome figure a {
   cursor: url("/img/pikachu.png"), auto;
 }
+#root * img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
 .boxHome figure a {
   height: 20px;
   position: absolute;
@@ -134,4 +140,9 @@ body,
   .wrapper {
     max-width: 1300px;
   }
+}
+
+.boxImgsPOkemon figure {
+  width: 150px;
+  height: 150px;
 }

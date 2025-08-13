@@ -5,7 +5,7 @@ const h80 = "h-[81%]";
 
 import { Header, Footer } from "../components";
 
-const MainLayout = () => {
+const MainLayout = ({ search, setSearch }) => {
   const [isOnRoot, setIsOnRoot] = useState(false);
   let location = useLocation();
   console.log("location:", location);
@@ -27,7 +27,7 @@ const MainLayout = () => {
 
   return (
     <>
-      <Header />
+      <Header search={search} setSearch={setSearch} />
       <div className={isOnRoot ? `${outlet} ${h80}` : `${outlet}`}>
         <Outlet />
       </div>

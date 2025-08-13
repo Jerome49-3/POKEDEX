@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import { useParams } from "react-router-dom";
 import useCallApi from "../hookCustom/useCallApi";
+import Slider from "../components/Slider";
 
 const PokemonDetails = () => {
   const { pokeName } = useParams();
@@ -17,11 +18,15 @@ const PokemonDetails = () => {
   console.log("legacyCries in pokemonDetails:", legacyCries);
   const pokename = statePokemon?.state?.results?.name;
   console.log("pokename in pokemonDetails:", pokename);
+  const imgsPokeArray = statePokemon?.state?.images;
   return (
     <div className="boxPokemonDetails w-full h-full">
       <div className="wrapper">
-        <div className="top w-full h-1/2">
+        <div className="top w-full h-1/2 text-center py-5 text-2xl">
           <h1 className="h-10">{pokename}</h1>
+        </div>
+        <div className="boxImgsPOkemon flex w-full h-1/2 justify-center items-center">
+          <Slider imgsPokeArray={imgsPokeArray} />
         </div>
         <div className="bottom w-full h-1/2">
           <h3 className="h-10">Cris:</h3>
