@@ -7,12 +7,16 @@ import { useStateContext } from "../assets/lib/useStateContext";
 //components
 import { CardPoke } from "../components";
 
-const Pokemon = () => {
+const Pokemons = () => {
   const [loading, setLoading] = useState(true);
   console.log("loading:", loading);
 
   const { state, dispatch } = useStateContext();
   // console.log("state in Pokemon:", state);
+  console.log(
+    "VITE_REACT_APP_URL in Pokemon:",
+    `${import.meta.env.VITE_REACT_APP_URL}`
+  );
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -58,4 +62,4 @@ const Pokemon = () => {
   );
 };
 
-export default Pokemon;
+export default Pokemons;
