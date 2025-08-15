@@ -13,8 +13,8 @@ const useCallApi = (methodAxios, urlApi) => {
     setNext,
     prev,
     setPrev,
-    imgsArray,
-    setImgsArray,
+    imgsSlider,
+    setImgsSlider,
   } = useStateContext();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
@@ -29,10 +29,10 @@ const useCallApi = (methodAxios, urlApi) => {
       setCount,
       setNext,
       setPrev,
-      setImgsArray
+      setImgsSlider
     );
   }, [loading]);
-  return { data, loading, count, next, prev, imgsArray };
+  return { data, loading, count, next, prev, imgsSlider };
 };
 
 export default useCallApi;

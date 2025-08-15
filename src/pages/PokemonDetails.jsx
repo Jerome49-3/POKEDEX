@@ -6,19 +6,19 @@ import { useStateContext } from "../assets/lib/useStateContext";
 
 const PokemonDetails = () => {
   const { pokeName } = useParams();
-  console.log("pokeName on PokemonDetails:", pokeName);
-  const { imgsArray } = useStateContext();
+  // console.log("pokeName on PokemonDetails:", pokeName);
+  const { imgsSlider, setImgsSlider } = useStateContext();
   const statePokemon = useCallApi(
     "get",
     `${import.meta.env.VITE_REACT_APP_URL}/pokedex/pokemon/${pokeName}`
   );
-  console.log("statePokemon in pokemonDetails:", statePokemon);
+  // console.log("statePokemon in pokemonDetails:", statePokemon);
   const latestCries = statePokemon?.data?.cries?.latest;
-  console.log("latestCries in pokemonDetails:", latestCries);
+  // console.log("latestCries in pokemonDetails:", latestCries);
   const legacyCries = statePokemon?.data?.cries?.legacy;
-  console.log("legacyCries in pokemonDetails:", legacyCries);
+  // console.log("legacyCries in pokemonDetails:", legacyCries);
   const pokename = statePokemon?.data?.name;
-  console.log("pokename in pokemonDetails:", pokename);
+  // console.log("pokename in pokemonDetails:", pokename);
 
   return (
     <div className="boxPokemonDetails w-full h-full">
@@ -27,7 +27,7 @@ const PokemonDetails = () => {
           <h1 className="h-10">{pokename}</h1>
         </div>
         <div className="boxImgsPOkemon flex w-full h-1/2 justify-center items-center">
-          <Slider imgsPokeArray={imgsArray} />
+          <Slider imgsSlider={imgsSlider} setImgsSlider={setImgsSlider} />
         </div>
         <div className="bottom w-full h-1/2">
           <h3 className="h-10">Cris:</h3>

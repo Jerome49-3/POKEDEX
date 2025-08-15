@@ -5,7 +5,7 @@ const fetchDataGeneric = async (
   setCount,
   setNext,
   setPrev,
-  setImgsArray
+  setImgsSlider
 ) => {
   try {
     const response = await axios;
@@ -23,7 +23,7 @@ const fetchDataGeneric = async (
       setPrev(response?.data?.prev);
     }
     if (response?.data?.images) {
-      setImgsArray(response?.data?.images);
+      setImgsSlider(response?.data?.images);
     }
     setLoading(false);
   } catch (error) {

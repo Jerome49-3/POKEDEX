@@ -6,7 +6,7 @@ export const StateProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const [next, setNext] = useState("");
   const [prev, setPrev] = useState("");
-  const [imgsArray, setImgsArray] = useState([]);
+  const [imgsSlider, setImgsSlider] = useState([]);
 
   // console.log("state in StateProvider:", state);
   return (
@@ -20,8 +20,8 @@ export const StateProvider = ({ children }) => {
         setNext,
         prev,
         setPrev,
-        imgsArray,
-        setImgsArray,
+        imgsSlider,
+        setImgsSlider,
       }}
     >
       {children}
