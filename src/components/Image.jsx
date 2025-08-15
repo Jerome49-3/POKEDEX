@@ -17,7 +17,10 @@ const Image = ({ alt, classImg, src }) => {
               setOnError(false);
             }}
             onError={() => {
-              setOnError(true);
+              setOnError((error) => {
+                console.log("error in component Image:", error);
+                return true;
+              });
             }}
           />
         </figure>
