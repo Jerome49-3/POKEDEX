@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "./Image";
 import handlePrev from "../assets/lib/handlePrev";
 import handleNext from "../assets/lib/handleNext";
@@ -13,7 +13,7 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
   console.log("imgSliderLength in Slider:", imgSliderLength);
   const [imgSrc, setImgSrc] = useState("");
   console.log("imgSrc in Slider:", imgSrc);
-  useLayoutEffect(() => {
+  useEffect(() => {
     try {
       if (index > imgSliderLength) {
         newIndex = 0;
