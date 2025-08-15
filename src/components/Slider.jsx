@@ -7,6 +7,7 @@ import handleNext from "../assets/lib/handleNext";
 
 const Slider = ({ imgsSlider, setImgsSlider }) => {
   console.log("imgsSlider in Slider:", imgsSlider);
+  console.log("Array.isArray in Slider:", Array.isArray(imgsSlider));
   const [index, setIndex] = useState(0);
   let newIndex;
   const imgSliderLength = imgsSlider?.length - 1;
@@ -18,11 +19,9 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
       if (index > imgSliderLength) {
         newIndex = 0;
         setIndex(newIndex);
-        localStorage.setItem("indexSlider", index);
       } else if (index < 0) {
         newIndex = imgSliderLength;
         setIndex(newIndex);
-        localStorage.setItem("indexSlider", index);
       }
       console.log("index in useEffect on Slider:", index);
       console.log(
@@ -35,18 +34,18 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
     } catch (error) {
       console.log("error in useEffect on Slider:", error);
     }
-  }, [imgsSlider, index, imgSliderLength, imgSrc]);
+  }, [imgsSlider, index]);
 
   return (
     <div className="boxSlider">
-      <p className="text-center">
+      <div className="text-center">
         {index + 1 === 1 || index + 1 === 2 ? (
           <p>Look legacy</p>
         ) : (
           <p>Look Shiny</p>
         )}
         {index} / {imgSliderLength}
-      </p>
+      </div>
       {imgSrc && <Image src={imgSrc} alt="image pokemon" />}
       <div className="navSlider flex justify-between">
         <button
