@@ -2,7 +2,7 @@ const CardPoke = ({ pokeName, pokeImg }) => {
   return (
     <a
       href={`/pokemon/${pokeName}`}
-      className="card card-side bg-base-100 shadow-sm w-1/4"
+      className="card card-side bg-base-100 shadow-sm w-1/6"
     >
       <figure className="w-fit">
         <img

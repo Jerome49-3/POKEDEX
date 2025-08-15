@@ -1,11 +1,13 @@
 import { Outlet, useLocation } from "react-router";
 import { useEffect, useState } from "react";
+import { useStateContext } from "../assets/lib/useStateContext";
 const outlet = "outlet";
-const h80 = "h-[81%]";
+const h80 = "h-[82%]";
 
 import { Header, Footer } from "../components";
 
-const MainLayout = ({ search, setSearch }) => {
+const MainLayout = () => {
+  const { search, setSearch } = useStateContext();
   const [isOnRoot, setIsOnRoot] = useState(false);
   let location = useLocation();
   console.log("location:", location);
@@ -16,6 +18,7 @@ const MainLayout = ({ search, setSearch }) => {
   useEffect(() => {
     if (
       location.pathname === "/" ||
+      location.pathname === "/pokemons" ||
       location.pathname === "/types" ||
       location.pathname.startsWith("/pokemon/") === true
     ) {

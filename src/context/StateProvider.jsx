@@ -1,22 +1,29 @@
-import { useReducer } from "react";
 import { StateContext } from "./StateContext";
-import PokReducer from "../store/PokReducer";
+import { useState } from "react";
 
 export const StateProvider = ({ children }) => {
-  //******* STATE PANIER ************//
-  const [state, dispatch] = useReducer(PokReducer, [], () => {
-    const newPokedex = localStorage.getItem("pokedex");
-    // console.log("%cnewPokedex in App:", "color: green", newPokedex);
-    if (newPokedex === null) {
-      return [];
-    } else {
-      return JSON.parse(newPokedex);
-    }
-  });
+  const [search, setSearch] = useState("");
+  const [count, setCount] = useState(0);
+  const [next, setNext] = useState("");
+  const [prev, setPrev] = useState("");
+  const [imgsArray, setImgsArray] = useState([]);
 
   // console.log("state in StateProvider:", state);
   return (
-    <StateContext.Provider value={{ state, dispatch }}>
+    <StateContext.Provider
+      value={{
+        search,
+        setSearch,
+        count,
+        setCount,
+        next,
+        setNext,
+        prev,
+        setPrev,
+        imgsArray,
+        setImgsArray,
+      }}
+    >
       {children}
     </StateContext.Provider>
   );

@@ -29,28 +29,27 @@ const BoxModels = ({ skyScale, skyPosition, skyRotation }) => {
             minPolarAngle={Math.PI / 5}
             maxPolarAngle={Math.PI / 2}
           />
+
           <Suspense fallback={<Loader />}>
-            <Suspense fallback={<Loader />}>
-              <ambientLight intensity={0.5} color="#ffffff" />
-              <DirectionLightScenes
-                positionArr={[15, 80, 2.5]}
-                intensityVal={0.25}
-                colorHex={"#efaefc"}
-              />
-              <SpotLightScene
-                positionVal={[-10, 5, 10]}
-                intensityVal={100}
-                angleVal={0.15}
-                colorHex={"#f9e79f"}
-              />
-              <SpotLightScene
-                positionVal={[10, -2.5, -20]}
-                intensityVal={100}
-                angleVal={1}
-                colorHex={"#a9fc9d"}
-              />
-              <Pokedex />
-            </Suspense>
+            <ambientLight intensity={0.5} color="#ffffff" />
+            <DirectionLightScenes
+              positionArr={[15, 80, 2.5]}
+              intensityVal={0.25}
+              colorHex={"#efaefc"}
+            />
+            <SpotLightScene
+              positionVal={[-10, 5, 10]}
+              intensityVal={100}
+              angleVal={0.15}
+              colorHex={"#f9e79f"}
+            />
+            <SpotLightScene
+              positionVal={[10, -2.5, -20]}
+              intensityVal={100}
+              angleVal={1}
+              colorHex={"#a9fc9d"}
+            />
+            <Pokedex />
             <Sky
               skyScale={skyScale}
               skyPosition={skyPosition}

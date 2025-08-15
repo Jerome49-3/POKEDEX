@@ -3,46 +3,35 @@
 import axios from "axios";
 import { useState, useEffect, Fragment } from "react";
 import { useStateContext } from "../assets/lib/useStateContext";
-
+import useCallApi from "../hookCustom/useCallApi";
 //components
 import { CardPoke } from "../components";
+import LoaderPage from "../components/LoaderPage";
 
 const Pokemons = () => {
   const [loading, setLoading] = useState(true);
   console.log("loading:", loading);
 
-  const { state, dispatch } = useStateContext();
+  const { search, setSearch } = useStateContext();
   // console.log("state in Pokemon:", state);
-  console.log(
-    "VITE_REACT_APP_URL in Pokemon:",
-    `${import.meta.env.VITE_REACT_APP_URL}`
+  // console.log(
+  //   "VITE_REACT_APP_URL in Pokemon:",
+  //   `${import.meta.env.VITE_REACT_APP_URL}`
+  // );
+  const statePokemon = useCallApi(
+    "get",
+    `${import.meta.env.VITE_REACT_APP_URL}/pokedex/pokemons`
   );
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_REACT_APP_URL}/pokedex/pokemons`
-        );
-        if (response?.data) {
-          console.log("response.date in Home:", response?.data);
-          dispatch({ type: "getPokemons", data: response?.data });
-          setLoading(false);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+  console.log("statePokemon in pokemons:", statePokemon);
 
-  return loading ? (
-    <p>...loading</p>
+  return statePokemon?.loading ? (
+    <LoaderPage />
   ) : (
     <>
-      <main className="boxpokemons">
-        <div className="wrapper w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full h-full flex gap-10 flex-wrap justify-between pt-5 pb-20">
-            {state?.results.map((pokemon, index) => {
+      <main className="boxpokemons w-full h-full">
+        <div className="wrapper w-full h-full">
+          <div className="w-full h-full flex gap-10 flex-wrap justify-between py-5">
+            {statePokemon?.data.map((pokemon, index) => {
               console.log("pokemon", pokemon);
               return (
                 <Fragment key={index}>

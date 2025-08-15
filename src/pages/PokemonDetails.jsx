@@ -2,23 +2,24 @@
 import { useParams } from "react-router-dom";
 import useCallApi from "../hookCustom/useCallApi";
 import Slider from "../components/Slider";
+import { useStateContext } from "../assets/lib/useStateContext";
 
 const PokemonDetails = () => {
   const { pokeName } = useParams();
   console.log("pokeName on PokemonDetails:", pokeName);
+  const { imgsArray } = useStateContext();
   const statePokemon = useCallApi(
     "get",
-    `${import.meta.env.VITE_REACT_APP_URL}/pokedex/pokemon/${pokeName}`,
-    "getPokemon"
+    `${import.meta.env.VITE_REACT_APP_URL}/pokedex/pokemon/${pokeName}`
   );
   console.log("statePokemon in pokemonDetails:", statePokemon);
-  const latestCries = statePokemon?.state?.results?.cries?.latest;
+  const latestCries = statePokemon?.data?.cries?.latest;
   console.log("latestCries in pokemonDetails:", latestCries);
-  const legacyCries = statePokemon?.state?.results?.cries?.legacy;
+  const legacyCries = statePokemon?.data?.cries?.legacy;
   console.log("legacyCries in pokemonDetails:", legacyCries);
-  const pokename = statePokemon?.state?.results?.name;
+  const pokename = statePokemon?.data?.name;
   console.log("pokename in pokemonDetails:", pokename);
-  const imgsPokeArray = statePokemon?.state?.images;
+
   return (
     <div className="boxPokemonDetails w-full h-full">
       <div className="wrapper">
@@ -26,7 +27,7 @@ const PokemonDetails = () => {
           <h1 className="h-10">{pokename}</h1>
         </div>
         <div className="boxImgsPOkemon flex w-full h-1/2 justify-center items-center">
-          <Slider imgsPokeArray={imgsPokeArray} />
+          <Slider imgsPokeArray={imgsArray} />
         </div>
         <div className="bottom w-full h-1/2">
           <h3 className="h-10">Cris:</h3>

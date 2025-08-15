@@ -4,6 +4,14 @@ import { useGLTF } from "@react-three/drei";
 
 const Pokedex = (props) => {
   const { nodes, materials } = useGLTF("/models/pokedex.glb");
+  console.log(
+    "materials in pokedex's model:",
+    materials,
+    "\n",
+    "nodes in pokedex's model:",
+    nodes
+  );
+
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
