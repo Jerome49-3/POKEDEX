@@ -10,7 +10,9 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
   const [index, setIndex] = useState(0);
   let newIndex;
   const imgSliderLength = imgsSlider?.length - 1;
-  console.log("imgSimgSliderLengthlider in Slider:", imgSliderLength);
+  console.log("imgSliderLength in Slider:", imgSliderLength);
+  const [imgSrc, setImgSrc] = useState("");
+  console.log("imgSrc in Slider:", imgSrc);
   useLayoutEffect(() => {
     try {
       if (index > imgSliderLength) {
@@ -22,13 +24,18 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
         setIndex(newIndex);
         localStorage.setItem("indexSlider", index);
       }
-      // if (index === imgSlider[index]) {
-      //   setImgSlider(imgSlider[index]);
-      // }
+      console.log("index in useEffect on Slider:", index);
+      console.log(
+        "imgsSlider[index] in useEffect on Slider:",
+        imgsSlider[index]
+      );
+      if (imgsSlider[index]) {
+        setImgSrc(imgsSlider[index]);
+      }
     } catch (error) {
       console.log("error in useEffect on Slider:", error);
     }
-  }, [imgsSlider, index, imgSliderLength]);
+  }, [imgsSlider, index, imgSliderLength, imgSrc]);
 
   return (
     <div className="boxSlider">
@@ -38,9 +45,9 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
         ) : (
           <p>Look Shiny</p>
         )}
-        {index + 1} / {imgSliderLength + 1}
+        {index} / {imgSliderLength}
       </p>
-      {imgsSlider && <Image src={imgsSlider[index]} />}
+      {imgSrc && <Image src={imgSrc} alt="image pokemon" />}
       <div className="navSlider flex justify-between">
         <button
           className="bg-fuchsia-800 rounded-[15%] w-10 h-5 flex items-center justify-center px-6 py-3"

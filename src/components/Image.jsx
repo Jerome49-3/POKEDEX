@@ -4,7 +4,7 @@ const Image = ({ alt, classImg, src }) => {
   // console.log("src in Image:", src);
   const [onError, setOnError] = useState(false);
   // const question = "/img/questionIcone.png";
-  console.log("onError sur Image:", onError);
+  console.log("onError in component Image:", onError);
   return (
     <>
       {!onError ? (
