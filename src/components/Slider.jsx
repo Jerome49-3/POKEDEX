@@ -19,7 +19,7 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
       return 0;
     }
   });
-  let newIndex = 0;
+  let newIndex = index + 0;
   const imgSliderLength = imgsSlider?.length - 1;
   console.log("imgSliderLength in Slider:", imgSliderLength);
   const [imgSrc, setImgSrc] = useState("");
@@ -29,11 +29,9 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
       if (index > imgSliderLength) {
         newIndex = 0;
         setIndex(newIndex);
-        localStorage.setItem("indexSlider", newIndex);
       } else if (index < 0) {
         newIndex = imgSliderLength;
         setIndex(newIndex);
-        localStorage.setItem("indexSlider", newIndex);
       }
       console.log("index in useEffect on Slider:", index);
       console.log(
@@ -42,13 +40,12 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
       );
       if (imgsSlider[index]) {
         setImgSrc(imgsSlider[index]);
-        localStorage.setItem("indexSlider", newIndex);
       }
+      localStorage.setItem("indexSlider", newIndex);
     } catch (error) {
       console.log("error in useEffect on Slider:", error);
     }
   }, [imgsSlider, index]);
-
   return (
     <div className="boxSlider">
       <div className="text-center">

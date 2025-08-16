@@ -6,6 +6,7 @@ const handleNext = (e, newIndex, index, setIndex) => {
     newIndex = index + 1;
     setIndex(newIndex);
     console.log("newIndex in handleNext:", newIndex);
+    localStorage.setItem("indexSlider", newIndex);
   } catch (error) {
     console.log("error in handleNext:", error);
   }
