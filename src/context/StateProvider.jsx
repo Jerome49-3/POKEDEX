@@ -6,7 +6,7 @@ export const StateProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const [next, setNext] = useState("");
   const [prev, setPrev] = useState("");
-  const [imgsSlider, setImgsSlider] = useState([]);
+  const [imgsSlider, setImgsSlider] = useState(null);
 
   // console.log("state in StateProvider:", state);
   return (

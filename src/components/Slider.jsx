@@ -8,8 +8,18 @@ import handleNext from "../assets/lib/handleNext";
 const Slider = ({ imgsSlider, setImgsSlider }) => {
   console.log("imgsSlider in Slider:", imgsSlider);
   console.log("Array.isArray in Slider:", Array.isArray(imgsSlider));
-  const [index, setIndex] = useState(0);
-  let newIndex;
+  const [index, setIndex] = useState(() => {
+    const getIndex = Number(localStorage.getItem("indexSlider"));
+    console.log("getIndex:", getIndex);
+    console.log("typeof getIndex:", typeof getIndex);
+    if (getIndex) {
+      console.log("getIndex:", getIndex);
+      return getIndex;
+    } else {
+      return 0;
+    }
+  });
+  let newIndex = 0;
   const imgSliderLength = imgsSlider?.length - 1;
   console.log("imgSliderLength in Slider:", imgSliderLength);
   const [imgSrc, setImgSrc] = useState("");
@@ -19,9 +29,11 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
       if (index > imgSliderLength) {
         newIndex = 0;
         setIndex(newIndex);
+        localStorage.setItem("indexSlider", newIndex);
       } else if (index < 0) {
         newIndex = imgSliderLength;
         setIndex(newIndex);
+        localStorage.setItem("indexSlider", newIndex);
       }
       console.log("index in useEffect on Slider:", index);
       console.log(
@@ -30,6 +42,7 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
       );
       if (imgsSlider[index]) {
         setImgSrc(imgsSlider[index]);
+        localStorage.setItem("indexSlider", newIndex);
       }
     } catch (error) {
       console.log("error in useEffect on Slider:", error);
