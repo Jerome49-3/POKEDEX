@@ -2,35 +2,40 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import Image from "./Image";
-import handlePrev from "../assets/lib/handlePrev";
-import handleNext from "../assets/lib/handleNext";
+import handlePrev from "../assets/lib/handleImgPrev";
+import handleNext from "../assets/lib/handleImgNext";
 
-const Slider = ({ imgsSlider, setImgsSlider }) => {
-  console.log("imgsSlider in Slider:", imgsSlider);
-  console.log("Array.isArray in Slider:", Array.isArray(imgsSlider));
+const Slider = ({ imgsSlider, setImgsSlider, imgsLength }) => {
+  console.log("%cimgsSlider in Slider:", "color: green", imgsSlider);
+  console.log(
+    "%cArray.isArray in Slider:",
+    "color: green",
+    Array.isArray(imgsSlider)
+  );
   const [index, setIndex] = useState(() => {
     const getIndex = Number(localStorage.getItem("indexSlider"));
-    console.log("getIndex:", getIndex);
-    console.log("typeof getIndex:", typeof getIndex);
+    console.log("%cgetIndex:", "color: green", getIndex);
+    console.log("%ctypeof getIndex:", "color: green", typeof getIndex);
     if (getIndex) {
-      console.log("getIndex:", getIndex);
+      console.log("%cgetIndex2:", "color: green", getIndex);
       return getIndex;
     } else {
       return 0;
     }
   });
   let newIndex = index + 0;
-  const imgSliderLength = imgsSlider?.length - 1;
-  console.log("imgSliderLength in Slider:", imgSliderLength);
+  console.log("%cnewIndex in Slider:", "color: green", newIndex);
+  // const imgSliderLength = imgsLength;
+  // console.log("imgSliderLength in Slider:", imgSliderLength);
   const [imgSrc, setImgSrc] = useState("");
-  console.log("imgSrc in Slider:", imgSrc);
+  console.log("%cimgSrc in Slider:", "color: green", imgSrc);
   useEffect(() => {
     try {
-      if (index > imgSliderLength) {
+      if (index > imgsLength) {
         newIndex = 0;
         setIndex(newIndex);
       } else if (index < 0) {
-        newIndex = imgSliderLength;
+        newIndex = imgsLength;
         setIndex(newIndex);
       }
       console.log("index in useEffect on Slider:", index);
@@ -49,12 +54,8 @@ const Slider = ({ imgsSlider, setImgsSlider }) => {
   return (
     <div className="boxSlider">
       <div className="text-center">
-        {index + 1 === 1 || index + 1 === 2 ? (
-          <p>Look legacy</p>
-        ) : (
-          <p>Look Shiny</p>
-        )}
-        {index} / {imgSliderLength}
+        {index === 1 || index === 2 ? <p>Look legacy</p> : <p>Look Shiny</p>}
+        {index} / {imgsLength}
       </div>
       {imgSrc && <Image src={imgSrc} alt="image pokemon" />}
       <div className="navSlider flex justify-between">

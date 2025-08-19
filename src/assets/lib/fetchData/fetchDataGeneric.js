@@ -1,29 +1,9 @@
-const fetchDataGeneric = async (
-  axios,
-  setData,
-  setLoading,
-  setCount,
-  setNext,
-  setPrev,
-  setImgsSlider
-) => {
+const fetchDataGeneric = async (axios, setData, setLoading) => {
   try {
     const response = await axios;
-    console.log("response in fetchDataGeneric:", response);
+    console.log("%cresponse in fetchDataGeneric:", "color: magenta", response);
     if (response?.data) {
-      setData(response?.data?.results);
-    }
-    if (response?.data?.count) {
-      setCount(response?.data?.count);
-    }
-    if (response?.data?.next) {
-      setNext(response?.data?.next);
-    }
-    if (response?.data?.prev) {
-      setPrev(response?.data?.prev);
-    }
-    if (response?.data?.images) {
-      setImgsSlider(response?.data?.images);
+      setData(response?.data);
     }
     setLoading(false);
   } catch (error) {

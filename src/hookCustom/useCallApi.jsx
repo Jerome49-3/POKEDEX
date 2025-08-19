@@ -4,19 +4,9 @@ import fetchDataGeneric from "../assets/lib/fetchData/fetchDataGeneric";
 import axios from "axios";
 import { useStateContext } from "../assets/lib/useStateContext";
 
-const useCallApi = (methodAxios, urlApi) => {
+const useCallApi = (methodAxios, urlApi, deps) => {
   // console.log("methodAxios on useCallApi:", methodAxios);
-  const {
-    count,
-    setCount,
-    next,
-    setNext,
-    prev,
-    setPrev,
-    imgsSlider,
-    setImgsSlider,
-  } = useStateContext();
-  const [loading, setLoading] = useState(true);
+  const { isLoading, setIsLoading } = useStateContext();
   const [data, setData] = useState(true);
   useEffect(() => {
     fetchDataGeneric(
@@ -25,14 +15,10 @@ const useCallApi = (methodAxios, urlApi) => {
         url: urlApi,
       }),
       setData,
-      setLoading,
-      setCount,
-      setNext,
-      setPrev,
-      setImgsSlider
+      setIsLoading
     );
-  }, [loading]);
-  return { data, loading, count, next, prev, imgsSlider };
+  }, [isLoading, ...deps]);
+  return { data, isLoading };
 };
 
 export default useCallApi;

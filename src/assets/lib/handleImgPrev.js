@@ -1,4 +1,4 @@
-const handlePrev = (e, newIndex, index, setIndex) => {
+const handleImgPrev = (e, newIndex, index, setIndex) => {
   console.log("newIndex in handlePrev:", newIndex);
   console.log("index in handlePrev:", index);
   e.preventDefault();
@@ -12,4 +12,4 @@ const handlePrev = (e, newIndex, index, setIndex) => {
     console.log("error in handlePrev:", error);
   }
 };
-export default handlePrev;
+export default handleImgPrev;
