@@ -20,6 +20,7 @@ const Pokemons = () => {
   //   `${import.meta.env.VITE_REACT_APP_URL}`
   // );
   const deps = [offset];
+  const newOffset = offset + 20;
   console.log("%cdeps in pokemons:", "color: red", deps);
   const statePokemon = useCallApi(
     "get",
@@ -42,7 +43,9 @@ const Pokemons = () => {
     <>
       <main className="boxpokemons w-full h-full">
         <div className="wrapper w-full h-full">
-          <h1 className="text-center">Nombre de Pokemons: {count}</h1>
+          <h1 className="text-center">
+            Nombre de Pokemons: {newOffset} / {count}
+          </h1>
           <div className="w-full h-full flex gap-10 flex-wrap justify-between py-5 relative z-10 min-w-0">
             <BtnSvgTwd
               btnClass="btn btn-circle btnLeft z-20"
