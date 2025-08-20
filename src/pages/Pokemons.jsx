@@ -20,6 +20,7 @@ const Pokemons = () => {
   //   `${import.meta.env.VITE_REACT_APP_URL}`
   // );
   const deps = [offset];
+  console.log("%cdeps in pokemons:", "color: red", deps);
   const statePokemon = useCallApi(
     "get",
     `${
@@ -42,14 +43,14 @@ const Pokemons = () => {
       <main className="boxpokemons w-full h-full">
         <div className="wrapper w-full h-full">
           <h1>Nombre de Pokemons: {count}</h1>
-          <div className="w-full h-full flex gap-10 flex-wrap justify-between py-5 relative">
+          <div className="w-full h-full flex gap-10 flex-wrap justify-between py-5 relative z-10 min-w-0">
             <BtnSvgTwd
-              btnClass="btn btn-circle btnLeft"
+              btnClass="btn btn-circle btnLeft z-20"
               svgWidth="24"
               svgHeight="20"
               svgColor="whitesmoke"
               svgPath="m15 18-6-6 6-6"
-              handleClick={(e) => handlePgPrev(e, offset, setOffset)}
+              handleClick={(e) => handlePgPrev(e, offset, setOffset, count)}
             />
             {statePokemon?.data?.results.map((pokemon, index) => {
               // console.log("%cpokemon", "color: red", pokemon);
@@ -65,12 +66,12 @@ const Pokemons = () => {
               );
             })}
             <BtnSvgTwd
-              btnClass="btn btn-circle btnRight"
+              btnClass="btn btn-circle btnRight z-20"
               svgWidth="24"
               svgHeight="20"
               svgColor="whitesmoke"
               svgPath="m9 18 6-6-6-6"
-              handleClick={(e) => handlePgNext(e, offset, setOffset)}
+              handleClick={(e) => handlePgNext(e, offset, setOffset, count)}
             />
           </div>
         </div>

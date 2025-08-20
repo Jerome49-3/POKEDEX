@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from "react";
-const Image = ({ alt, classImg, src }) => {
+const Image = ({ classFig, src, alt, classImg }) => {
   // console.log("src in Image:", src);
   const [onError, setOnError] = useState(false);
   // const question = "/img/questionIcone.png";
@@ -8,7 +8,7 @@ const Image = ({ alt, classImg, src }) => {
   return (
     <>
       {!onError ? (
-        <figure>
+        <figure className={classFig}>
           <img
             src={src}
             alt={alt}

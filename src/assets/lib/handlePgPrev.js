@@ -1,7 +1,12 @@
-const handlePgPrev = (e, offset, setOffset) => {
+const handlePgPrev = (e, offset, setOffset, count) => {
   try {
     if (offset > 0) {
       const newOffset = offset - 20;
+      console.log("newOffset:", newOffset);
+      setOffset(newOffset);
+    }
+    if (offset === 0) {
+      const newOffset = count - 20;
       console.log("newOffset:", newOffset);
       setOffset(newOffset);
     }

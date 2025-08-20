@@ -1,6 +1,9 @@
-const handlePgNext = (e, offset, setOffset) => {
+const handlePgNext = (e, offset, setOffset, count) => {
   try {
-    const newOffset = offset + 20;
+    let newOffset = offset + 20;
+    if (newOffset === count) {
+      newOffset = 0;
+    }
     console.log("newOffset:", newOffset);
     setOffset(newOffset);
   } catch (error) {

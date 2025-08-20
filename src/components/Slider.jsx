@@ -5,7 +5,7 @@ import Image from "./Image";
 import handlePrev from "../assets/lib/handleImgPrev";
 import handleNext from "../assets/lib/handleImgNext";
 
-const Slider = ({ imgsSlider, setImgsSlider, imgsLength }) => {
+const Slider = ({ imgsSlider, imgsLength }) => {
   console.log("%cimgsSlider in Slider:", "color: green", imgsSlider);
   console.log(
     "%cArray.isArray in Slider:",
@@ -23,7 +23,8 @@ const Slider = ({ imgsSlider, setImgsSlider, imgsLength }) => {
       return 0;
     }
   });
-  let newIndex = index + 0;
+  let newIndex = index;
+  const viewIndex = index + 1;
   console.log("%cnewIndex in Slider:", "color: green", newIndex);
   // const imgSliderLength = imgsLength;
   // console.log("imgSliderLength in Slider:", imgSliderLength);
@@ -31,7 +32,7 @@ const Slider = ({ imgsSlider, setImgsSlider, imgsLength }) => {
   console.log("%cimgSrc in Slider:", "color: green", imgSrc);
   useEffect(() => {
     try {
-      if (index > imgsLength) {
+      if (index > imgsLength - 1) {
         newIndex = 0;
         setIndex(newIndex);
       } else if (index < 0) {
@@ -55,7 +56,7 @@ const Slider = ({ imgsSlider, setImgsSlider, imgsLength }) => {
     <div className="boxSlider">
       <div className="text-center">
         {index === 1 || index === 2 ? <p>Look legacy</p> : <p>Look Shiny</p>}
-        {index} / {imgsLength}
+        {viewIndex} / {imgsLength}
       </div>
       {imgSrc && <Image src={imgSrc} alt="image pokemon" />}
       <div className="navSlider flex justify-between">
