@@ -5,6 +5,7 @@ import useCallApi from "../hookCustom/useCallApi";
 import Slider from "../components/Slider";
 import { useStateContext } from "../assets/lib/useStateContext";
 import { useState, useEffect } from "react";
+import PlayerAudioBasic from "../components/PlayerAudioBasic";
 
 const PokemonDetails = () => {
   const { pokeName } = useParams();
@@ -33,8 +34,8 @@ const PokemonDetails = () => {
   useEffect(() => {
     if (isLoading !== true) {
       setImgsSlider(statePokemon?.data?.images);
-      setLatestCries(statePokemon?.data?.cries?.latest);
-      setLegacyCries(statePokemon?.data?.cries?.legacy);
+      setLatestCries(statePokemon?.data?.results?.cries?.latest);
+      setLegacyCries(statePokemon?.data?.results?.cries?.legacy);
       setPokename(statePokemon?.data?.name);
       setImgsLength(statePokemon?.data?.imgsArrLength);
     }
@@ -52,16 +53,14 @@ const PokemonDetails = () => {
         <div className="bottom w-full h-1/2">
           <h3 className="h-10">Cris:</h3>
           <div className="boxCries w-full h-1/4 gap-2 flex justify-start items-center">
-            <figure className="gap-4 flex-col justify-start items-center">
-              <figcaption>latest:</figcaption>
-              <audio className="py-2" controls src={latestCries}></audio>
-              <a href={latestCries}> Download audio </a>
-            </figure>
-            <figure className="gap-4 flex-col justify-start items-center">
-              <figcaption>legacy:</figcaption>
-              <audio className="py-2" controls src={legacyCries}></audio>
-              <a href={legacyCries}> Download audio </a>
-            </figure>
+            <PlayerAudioBasic
+              txtPlayerAudio="latest:"
+              srcLinkAudio={latestCries}
+            />
+            <PlayerAudioBasic
+              txtPlayerAudio="legacy:"
+              srcLinkAudio={legacyCries}
+            />
           </div>
         </div>
       </div>

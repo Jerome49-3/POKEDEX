@@ -1,4 +1,5 @@
 import Image from "./Image";
+import Input from "./Input";
 
 const Header = () => {
   const logoPokemon = "/img/logo-pokemon.png";
@@ -15,10 +16,10 @@ const Header = () => {
           </a>
         </div>
         <div className="flex-1">
-          <input
+          <Input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
+            classInput="input input-bordered w-24 md:w-auto"
             id="searchHeader"
           />
         </div>
